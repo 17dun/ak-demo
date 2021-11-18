@@ -1,0 +1,646 @@
+@import './variables.scss';
+
+// react-burger-menu
+/* Position and sizing of burger button */
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('/fonts/NotoSans-Regular.ttf');
+}
+/* 自定义全局样式 */
+html,
+body {
+  width: 100%;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-family: -apple-system, Noto Sans, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  @media (max-width: $maxPhoneWidth) {
+    font-size: 12px;
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #1a1a1a;
+}
+.showMobile {
+  display: none !important;
+  @media (max-width: $maxPhoneWidth) {
+    display: block !important;
+  }
+}
+.showPc {
+  @media (max-width: $maxPhoneWidth) {
+    display: none !important;
+  }
+}
+.content {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.content1000 {
+  max-width: 1000px;
+}
+.flex {
+  display: flex;
+}
+.close {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  right: 1rem;
+  top: 1rem;
+  padding: 0 !important;
+  .bm-cross-button {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+  }
+  .bm-cross {
+    position: absolute;
+    top: 0; left: 50%;
+    width: 3px;
+    height: 1.5rem;
+    transform: rotate(45deg);
+    background: #bdc3c7;
+  }
+  .bm-cross-re {
+    position: absolute;
+    top: 0; left: 50%;
+    width: 3px;
+    height: 1.5rem;
+    transform: rotate(-45deg);
+    background: #bdc3c7;
+  }
+}
+/* Slider */
+.slick-slider {
+  position: relative;
+
+  display: block;
+  box-sizing: border-box;
+
+  -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+      touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+
+  .slick-list {
+      position: relative;
+
+      display: block;
+      overflow: hidden;
+
+      margin: 0;
+      padding: 0;
+  }
+  .slick-list:focus {
+      outline: none;
+  }
+  .slick-list.dragging {
+      cursor: pointer;
+      cursor: hand;
+  }
+
+  .slick-track, .slick-list {
+      -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+          -ms-transform: translate3d(0, 0, 0);
+          -o-transform: translate3d(0, 0, 0);
+              transform: translate3d(0, 0, 0);
+  }
+
+  .slick-track {
+      position: relative;
+      top: 0;
+      left: 0;
+
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .slick-track:before,
+  .slick-track:after {
+      display: table;
+
+      content: '';
+  }
+  .slick-track:after {
+      clear: both;
+  }
+  .slick-loading .slick-track {
+      visibility: hidden;
+  }
+  &.slick-initialized .slick-slide {
+    display: block;
+  }
+  .slick-slide {
+      display: none;
+      float: left;
+
+      height: 100%;
+      min-height: 1px;
+  }
+  [dir='rtl'] .slick-slide {
+      float: right;
+  }
+  .slick-slide img {
+      display: block;
+  }
+  .slick-slide.slick-loading img {
+      display: none;
+  }
+  .slick-slide.dragging img {
+      pointer-events: none;
+  }
+  .slick-loading .slick-slide {
+      visibility: hidden;
+  }
+  .slick-vertical .slick-slide {
+      display: block;
+
+      height: auto;
+
+      border: 1px solid transparent;
+  }
+  .slick-arrow.slick-hidden {
+      display: none;
+  }
+  .slick-next, .slick-prev {
+    position: relative;
+    font-size: 0;
+    line-height: 0;
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    background: rgba($color: #666, $alpha: .1);
+    transform: translateY(-50%);
+    transition: all 200ms;
+    &::after {
+      content: "";
+      display: block;
+      width: 45%;
+      height: 5px;
+      border-radius: 10px;
+      background: #fff;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-60%, 20%) rotate(45deg);
+    }
+    &::before {
+      content: "";
+      display: block;
+      width: 45%;
+      height: 5px;
+      border-radius: 10px;
+      background: #fff;
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-60%, -120%) rotate(-45deg);
+    }
+    &:hover {
+      background: rgba($color: #666, $alpha: .5);
+    }
+  }
+  .slick-next {
+    transform: translateY(-50%) rotate(180deg);
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+  .slick-dots li {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    padding: 0;
+  }
+  .slick-dots li button{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-size: 0;
+    line-height: 0;
+    display: block;
+    padding: 5px;
+    color: transparent;
+    border: 0;
+    outline: none;
+    background: transparent;
+    &:before {
+      width: 8px; height: 8px;
+      position: absolute;
+      top: 40%;
+      left: 0;
+      content: "";
+      text-align: center;
+      opacity: .25;
+      background: #000;
+      border-radius: 50%;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  }
+  .slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #000;
+  }
+}
+// iconfont 全局样式 
+.iconfont {
+  font-size: 14px;
+}
+
+// 顶部样式
+.collectionHeader{
+  height: 65px; 
+}
+.header-container {
+  width: 100%;
+  $contentHeight: 65px; 
+  $contentHeightMobile: 55px; 
+  background: transparent;
+  position: absolute;
+  z-index: 100;
+  top:0;
+  left: 0;
+  transition: all .1s linear;
+  &.isfixed {
+    background-color:#fff;
+    position: fixed;
+  }
+  .menu .iconfont {
+    color: #fff;
+  }
+  
+  // 使用logo a标签的实际高度
+  &.fixedHeader {
+    @media (max-width: $maxPhoneWidth) {
+      position: absolute;
+      top: 0; left: 0;
+      z-index: 10;
+      background: transparent;
+      .menu .iconfont {
+        color: #fff;
+      }
+    }
+  }
+  .flex {
+    position: relative;
+  }
+  .logo {
+    width: auto ;
+    height: $contentHeight;
+    @media (max-width: $maxPhoneWidth) {
+      height: $contentHeightMobile;
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      text-align: center;
+    }
+    a {
+      display: block;
+    }
+    .iconfont {
+      color: $ankerColor;
+      font-size: 4rem;
+      transition: all 200ms;
+      @media (max-width: $maxPhoneWidth) {
+        &.white {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .menu {
+    height: $contentHeight;;
+    position: relative;
+    z-index: 2;
+    padding-left: 2rem;
+    @media (max-width: $maxPhoneWidth) {
+      height: $contentHeightMobile;
+    }
+    .btn {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .iconfont {
+      color: $ankerColor;
+      font-size: 2.5rem;
+    }
+  }
+  .nav {
+    margin-left: 15px;
+    overflow: hidden;
+    transition: 300ms ease-in-out;
+    @media (max-width: $maxPhoneWidth) {
+      width: 65%;
+      display: block;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 100;
+      margin: 0;
+      padding: 5rem 0 0 12%;
+      background: #fff;
+      &.navHidden {
+        left: -100%;
+      }
+    }
+    li {
+      padding: 0 10px;
+    }
+    a {
+      display: block;
+      font-size: 18px;
+      line-height: $contentHeight;
+      transition: all 200ms;
+      @media (max-width: $maxPhoneWidth) {
+        line-height: 40px;
+      }
+      &:hover {
+        color: $ankerColor;
+      }
+    }
+  }
+}
+
+.mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  background: rgba($color: #000000, $alpha: .6);
+}
+.hidden {
+  display: none !important;
+}
+// 底部样式
+.footer-container {
+  .footer-sub_brand {
+    padding: 2.5rem 0;
+    background: #f1f1f1;
+    .flex {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .flexBox {
+      width: 100%;
+      flex: 1;
+      text-align: center;
+    }
+    .iconfont {
+      font-size: 2.5rem;
+      color: #999;
+      transition: all 200ms;
+      &.iconlogo_ANKER:hover {
+        color: $ankerColor;
+      }
+      &.iconlogo_Soundcore:hover {
+        color: $soundcoreColor;
+      }
+      &.iconlogo_eufy:hover {
+        color: $eufyColor;
+      }
+      &.iconlogo_NEBULA1:hover {
+        color: $nebulaColor;
+      }
+    }
+  }
+  .footer {
+    display: flex;
+    width: 100%;
+    padding: 1rem;
+    background: #000;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: #fff;
+      margin: 0;
+      text-align: center;
+    }
+    a {
+      display: inline-block;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+// banner 样式   
+.bannerSection {
+  position: relative;
+  display: block;
+  &.white { color: #fff; border-color: #fff; }
+  .subTitle {
+    position: absolute;
+    top: 10%; left: 0;
+    font-size: 16px;
+  }
+  .content {
+    width: 90%;
+    max-width: 1200px;
+    position: absolute;
+    z-index: 1;
+    top: 0; bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    .bannerTxt {
+      width: 100%;
+      position: absolute;
+      top: 50%; left: 0;
+      transform: translateY(-50%);
+      @media (max-width: $maxPhoneWidth) {
+        top: 0;
+        transform: none;
+      }
+    }
+    .subIcon {
+      font-size: 14px;
+      font-weight: normal;
+      font-style: normal;
+      vertical-align: top;
+    }
+    .btnBox {
+      margin-top: 2rem;
+    }
+    h1 {
+      font-size: 5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 1rem 0 1.5rem;
+      @media (max-width: $maxPhoneWidth) {
+        font-size: 3rem;
+        text-align: center;
+        margin: 0 0 1rem;
+      }
+    }
+    h2 {
+      font-size: 3.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 1rem 0 1.5rem;
+      @media (max-width: $maxPhoneWidth) {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 0 1rem;
+      }
+    }
+    p {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 1rem 0;    
+      @media (max-width: $maxPhoneWidth) {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+  img {
+    width: 100%;
+  }
+}
+
+// 按钮样式
+.btnBox {
+  text-align: left;
+  @media (max-width: $maxPhoneWidth) {
+    text-align: center;
+  }
+}
+.btn {
+  border: none;
+  outline: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+  &.hollow {
+    font-size: 16px;
+    padding: 10px 30px;
+    border: 1px solid;
+    border-radius: 30px;
+    @media (max-width: $maxPhoneWidth) {
+      font-size: 14px;
+      padding: 6px 20px;
+      margin: 1rem 0;
+    }
+  }
+  &.white {
+    color: #fff;
+    border-color: #fff;
+  }
+}
+
+// crumbs
+.crumbs {
+  padding: 1.5rem 0;
+  font-size: 14px;
+  @media (max-width: $maxPhoneWidth) {
+    padding: 1rem;
+  }
+  .next {
+    display: block;
+    margin: 0 6px;
+  }
+}
+
+
+
+//header mask products
+.nav-products{
+  position:fixed;
+  transition:400ms ease-in-out;
+  opacity: 0;
+  height: 0;
+  width:100%;
+  border: 1px solid #eee;
+  top:0;
+  background-color: #fff;
+  z-index:20;
+  visibility: hidden;
+}
+.products-content{
+  margin: 80px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: row;
+    li{
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+    .img {
+      min-height: 80px;
+      max-height: 150px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background-color: #f7f8fa;
+      border-radius: 20px;
+      img {
+        display: block;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: all 300ms;
+      }
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .product-item-enter, .product-item-appear{
+    /*入场动画执行的第一个时刻*/
+    opacity: 0;
+  }
+
+  .product-item-enter-active, .product-item-appear-active{
+    /*入场动画执行的第二个瞬间一直到执行完成的时刻*/
+    opacity: 1;
+    transform:translateY(-8px);
+    animation-fill-mode:forwards;
+    transition: all 0.5s ease-in-out 0.1s;
+  }
+
+  .product-item-enter-done,.product-item-exit,
+  .product-item-exit-active,.product-item-exit-done {
+    transform:translateY(-8px);   
+  }
+}

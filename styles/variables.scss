@@ -1,0 +1,101 @@
+// Gray Variables
+$extraLightBg: #edf6fb;
+$grayBgdark: #242424;
+$gray: #323232;
+$grayLight: #343436;
+$grayTxtdark: #333;
+$greyBg: #5b5b5b; // footer bg
+$borderGery: #707070;
+$bannerDescColor: #808080;
+$grayColor: #999;
+$borderAshgrey: #9f9f9f;
+$grayTxtlight1: #6b6b6b;
+$grayTxtlight2: #CFCFCF;
+$inputBorderColor: #e0e0e0;
+$lightgrey: #E9E9E9; // footer bg
+$lighterGrey: #EDEDED; // footer bg
+$grayBglight: #F2F2F2; // products,Category,Search 背景色
+$lightgreyBg: #f4f4f4;
+$extraLightgrey: #f9f9f9; // grey bg
+$discountColor: #ff6200;
+
+// Social Color Variables
+$amazonColor: #F9951D;
+$paypalColor: #ffcf00;
+$sofortColor: #fa82a0;
+$facebookColor: #4267b2;
+$twitterColor: #00B9F0;
+$instagramColor: #000;
+$pinterestColor: #bd081c;
+$youtubeColor: #E6231A;
+$googleplusColor: #db4437;
+$periscopeColor: #75aadb;
+$linkedinColor: #0073b1;
+$vkColor: #2a5885;
+$lineColor: #0BC011;
+$hatenaColor: #00A4DE;
+$pocketColor: #EF3E56;
+
+// Brands Color Variables
+$roavColor: #f4840b;
+$eufyColor: #21CCBF;
+$zoloColor: #34302e;
+$jouzColor: #00a6d6;
+$ankerColor: #00a7e1;
+$nebulaColor: #e42d46;
+$soundcoreColor: #00A9DF;
+$communityColor: #00a8e1;
+
+// Color variables
+$flagRed: #EE3749;
+$starColor: #FEC93B;
+$couponGradient: linear-gradient(to right, #fa8325, #f9b725); // linear-gradient(to right, #000, #fff);
+$couponGradientHover: linear-gradient(to right, #fb8f2a, #fbbf2a); // linear-gradient(to right, #000, #fff);
+
+// 变量作为基础大小单位，使用px单位，方便对标设计图
+$buttonHeight: 36px;
+$inputHeight: 36px;
+$inputRadius: $inputHeight * 0.5;
+$slimHeight: 24px;
+$normalHeight: 38px;
+$headerHeight: 70px;
+$mobHeaderHeight: 70px;
+$barHeight: 30px;
+$mobBarHeight: 80px;
+$mobBarHeightbeta: auto;
+$modLineWidthMob: 70px;
+$modLineWidth: 70px;
+$modLineHeightMob: 3px;
+$modLineHeight: 3px;
+
+// Media Query variables
+$contentWidth: 1200px; // Page Content max 1200px
+$maxImageWidth: 1920px; // Page Content max 1200px
+$maxPhoneWidth: 767px; // Phone Size (iphone se/6,7,8,x/plus)
+$maxPadWidth: 1024px; // Pad Size (ipad pro)
+$maxLaptopWidth: 1440px; // large Laptop Size (Chrome
+$minPadWidth: 768px; // Pad Size (ipad)
+$minLaptopWidth: 992px; // medium laptop
+$minDesktopWidth: 1200px; // large desktop
+$minRetinaWidth: 2560px; // Retina 1440p
+$minRetina15Width: 2880px; // 15" Retina
+$minUHDWidth: 3840px; // UHD
+$min4KWidth: 4096px; // 4K
+$min5KWidth: 5120; // 5K
+$min8KWidth: 8192px; // 8K
+
+// banner 图 按比例放大
+@mixin scaleImg($size: 200%, $position: center) {
+  max-width: none;
+  width: $size;
+  @if $position == center {
+    transform: translate(#{($size - 100%) * 0.5 / $size * -100%});
+  } @else if $position == right {
+     transform: translate(#{($size - 100%) / $size * -100%});
+  } @else if $position == left {
+    transform: translate(0);
+  } @else {
+    transform: translate(#{($size - 100%) * $position / $size * -100%});
+    // @warn 'Unrecognized position: #{$position}';
+  }
+}

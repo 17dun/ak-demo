@@ -1,0 +1,30 @@
+@import 'styles/variables.scss';
+
+.Slider {
+  display: block;
+  width: 100%;
+  :global {
+    .slick-list {
+      width: 100%;
+    }
+    .slick-dots {
+      bottom: 15px;
+      z-index: 5;
+    }
+    .slick-arrow {
+      width: 30px;
+      height: 30px;
+      z-index: 5;
+      &::before {
+        font-size: 30px;
+      }
+    }
+    .slick-next {
+      right: 15px;
+    }
+    .slick-prev {
+      left: 15px;
+    }
+  }
+}
+
